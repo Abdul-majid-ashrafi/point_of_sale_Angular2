@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+    <title>Angular2 - Task Management</title>
+    
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS  (stable version)-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    
+    <!-- Angular2 Prequisites-->
+    <script src="lib/es6-shim.js"></script>
+    <script src="lib/angular2-polyfills.js"></script>
+    <script src="lib/system.src.js"></script>
+    <script src="lib/Rx.js"></script>
+    <script src="lib/angular2.dev.js"></script>
+    <script src="lib/http.dev.js"></script>
+    <script src="lib/router.dev.js"></script>
+    <!-- Angular2 Prequisites-->
+    
+    <script>
+    System.config({
+        packages: {
+            app: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+    });
+    System.import('app/boot')
+        .then(null, console.error.bind(console));
+    </script>
+
+</head>
+
+<body>
+    <start-app>Loading.......</start-app>
+</body>
+
+    <!-- Bootstrap -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    
+ 
+
+    
+</html>
