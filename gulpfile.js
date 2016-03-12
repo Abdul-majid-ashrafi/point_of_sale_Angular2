@@ -87,7 +87,7 @@ function ServerTranspileTest(tsFilePath) {
     return gulp.src(tsFilePath.path)
     .pipe(typescript(serverCompilerOptions))
     .pipe(gulp.dest(path.serverbuild));
-};
+}
 // TypeScript Server Transpile -- STEP 3 --
 gulp.task('Servertranspile', function () {
     return gulp
@@ -117,9 +117,9 @@ gulp.task('start', sequence('build', 'nodemon', 'watch'));
 gulp.task('nodemon', function () {
     gulpNodemon({
         script: 'server/build/app.js'
-    }).on('restart', function () {
+    }).on('restart', function() {
         console.log('GULP: nodemon restarted server.js');
-    })
+    });
 });
 
 gulp.task('watch', function () {
@@ -128,15 +128,9 @@ gulp.task('watch', function () {
     //client ts watching
     gulp.watch(path.clientts, ['Clienttranspile']);
     //client html watching
-    
     gulp.watch(path.html, ['copy:html']);
-    // gulp.watch(path.html, function (file) {
-    //     gulp.src(file.path).pipe(gulp.dest(path.buildapp));
-    // });
-    //client index.html watching
-    gulp.watch(path.index, function (file) {
-        gulp.src(file.path).pipe(gulp.dest(path.clientbuild));
-    });
+    //client index.html
+    gulp.watch(path.index, ['copy:index']);
     //client css watching
     gulp.watch(path.css, function (file) {
         gulp.src(file.path).pipe(gulp.dest(path.clientbuildapp));

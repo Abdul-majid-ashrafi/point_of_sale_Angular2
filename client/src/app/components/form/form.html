@@ -1,0 +1,46 @@
+<h1>Form Sample</h1>
+
+<p><br/></p>
+
+<strong *ngIf="!loginForm.valid" class="text-danger">Form is invalid (you can not submit your form)</strong>
+<strong *ngIf="loginForm.valid" class="text-success">Form is valid (now you can submit your form)</strong>
+
+<p><br/></p>
+
+<form role="form" class="row col-md-12" [ngFormModel]="loginForm" (submit)="doLogin($event)">
+    <div class="form-group">
+        <label for="email">Email address (HTML5 validation):</label>
+        <div class="form-inline">
+            <input ngControl="email" type="email" class="form-control" placeholder="Your email pls..."> <strong class="text-danger"> *</strong>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email2">Email address (custom validation):</label>
+        <div class="form-inline">
+            <input ngControl="email2" type="text" class="form-control" placeholder="custom email validation..."> <em class="text-info">(optional) - (custom email validation)</em> 
+        </div>
+        <div *ngIf="email2.dirty && !email2.valid">
+            <p *ngIf="email2.errors.emailValidation"> Not a valid email address </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <div class="form-inline">
+            <input  ngControl="name" type="text" class="form-control" placeholder="Your name pls..."> <strong class="text-danger"> *</strong> <em class="text-info"> name should be start with alphabet (custom validation)</em>
+        </div>
+        <div *ngIf="name.dirty && !name.valid">
+            <p *ngIf="name.errors.startsWithNumber"> Your name can't start with a number </p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+         <div class="form-inline">
+            <input  ngControl="password" type="password" class="form-control" placeholder="password"> <strong class="text-danger"> *</strong>
+        </div>
+        <div *ngIf="password.dirty && !password.valid">
+            <p *ngIf="password.errors.minlength"> Your password needs to be at least 4 characters. </p>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+

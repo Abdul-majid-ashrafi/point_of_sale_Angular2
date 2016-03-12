@@ -12,7 +12,7 @@
       "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"
     },
     "node/node.d.ts": {
-      "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"
+      "commit": "552fe5d3e45ef9c8ecd3eda2b6a24d2546c438f4"
     },
     "serve-static/serve-static.d.ts": {
       "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"
@@ -25,6 +25,9 @@
     },
     "mongoose/mongoose.d.ts": {
       "commit": "1a5b2a729d35b1d41e2d15818db013a3644c6ba4"
+    },
+    "socket.io/socket.io.d.ts": {
+      "commit": "552fe5d3e45ef9c8ecd3eda2b6a24d2546c438f4"
     }
   }
 }

@@ -1,0 +1,23 @@
+<h1> Scoket Sample </h1> 
+
+<h4> Add Fruits </h4>
+
+<form role="form" class="row col-md-6" (submit)="add(name.value);">
+    <div class="form-group">
+        <label for="name">Fruit Name:</label>
+        <div class="form-inline">
+            <input type="text" class="form-control" placeholder="fruit name..." #name /> 
+        </div>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+
+<div class="row col-md-6">
+	<table>
+        <tr *ngFor="#f of fruitz, #i = index"> 
+            <td> {{i}} - {{f}} </td>
+        </tr>
+    </table>
+</div>
