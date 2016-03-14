@@ -1,6 +1,7 @@
 # ng2seed
-Typed Angular2 and Typed Nodejs/Express
+Typed Nodejs/Express & Angular2 
 
+Sample Code using: NodeJS, ExpressJS, Angular2 (routing, form validation, http), Socket
 
 for run this application...
 
