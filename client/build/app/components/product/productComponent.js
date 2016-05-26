@@ -11,7 +11,7 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1, context_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1;
-    var HomeComponent;
+    var ProductComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,43 +21,50 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1, context_
                 http_1 = http_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent(http) {
+            ProductComponent = (function () {
+                function ProductComponent(http) {
                     var _this = this;
                     this.http = http;
-                    this.user = {
-                        fName: "",
-                        lName: "",
-                        type: ""
+                    this.product = {
+                        productName: "",
+                        priductDec: "",
+                        categoryName: "",
+                        unit: ""
                     };
-                    this.http.get('/api/user/getUser')
+                    this.http.get('/api/getProducts') /// get Products...
                         .subscribe(function (res) {
-                        _this.getData = res.json().data;
+                        _this.getProduct = res.json().data;
+                        console.log(res.json().data);
+                    });
+                    this.http.get('/api/getCategory') /// GEt Category..
+                        .subscribe(function (res) {
+                        _this.getCategory = res.json().data;
                         console.log(res.json().data);
                     });
                 }
-                HomeComponent.prototype.send = function (user) {
+                ProductComponent.prototype.send = function (product) {
+                    console.log(product);
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
                     var options = new http_1.RequestOptions();
                     options.headers = headers;
-                    this.http.post('/api/user/User', JSON.stringify(user), options)
+                    this.http.post('/api/Category', JSON.stringify(this.product), options)
                         .subscribe(function (res) {
-                        console.log("Create User :", res);
+                        console.log("Craete Products: ", res);
                     });
                     ; //http.post
                 };
-                HomeComponent = __decorate([
+                ProductComponent = __decorate([
                     //for http request (rest API)
                     core_1.Component({
-                        selector: 'home',
-                        templateUrl: "./app/components/home/home.html"
+                        selector: 'about',
+                        templateUrl: "./app/components/product/product.html"
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], HomeComponent);
-                return HomeComponent;
+                ], ProductComponent);
+                return ProductComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("ProductComponent", ProductComponent);
         }
     }
 });

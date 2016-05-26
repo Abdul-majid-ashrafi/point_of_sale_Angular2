@@ -3,18 +3,17 @@ import { Http, Response, RequestOptions, Headers } from 'angular2/http'; //for h
 
 @Component({
     selector : 'home',
-    templateUrl :  "./app/components/home/home.html"
+    templateUrl :  "./app/components/rate/rate.html"
 })
-export class HomeComponent{
-    user : {} 
+export class RateComponent{
+    rate : {} 
     getData; 
     constructor(public http: Http) {
-        this.user = {
-            fName : "",
-            lName: "",
-            type : ""
+        this.rate = {
+            rates : "",
+            rateDec: ""
         }
-         this.http.get('/api/user/getUser')
+         this.http.get('/api/rate/getRate')
             .subscribe((res: Response) => {
                this.getData = res.json().data
                console.log(res.json().data)			
@@ -22,16 +21,16 @@ export class HomeComponent{
         }
 
 
-             send(user): void {
+             send(rate): void {
 		let headers: Headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		let options: RequestOptions = new RequestOptions();
 		options.headers = headers;
       
-		this.http.post('/api/user/User' ,JSON.stringify(user), options)
+		this.http.post('/api/rate/Rate' ,JSON.stringify(rate), options)
         
 			.subscribe((res: Response) => {
-                console.log("Create User :",res)
+                console.log(res)
 		
             });
             

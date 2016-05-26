@@ -11,7 +11,7 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1, context_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1;
-    var HomeComponent;
+    var CategoryComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,43 +21,42 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1, context_
                 http_1 = http_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent(http) {
+            CategoryComponent = (function () {
+                function CategoryComponent(http) {
                     var _this = this;
                     this.http = http;
                     this.user = {
-                        fName: "",
-                        lName: "",
-                        type: ""
+                        categoryName: "",
+                        categoryDec: ""
                     };
-                    this.http.get('/api/user/getUser')
+                    this.http.get('/api/getCategory')
                         .subscribe(function (res) {
                         _this.getData = res.json().data;
                         console.log(res.json().data);
                     });
                 }
-                HomeComponent.prototype.send = function (user) {
+                CategoryComponent.prototype.send = function (user) {
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
                     var options = new http_1.RequestOptions();
                     options.headers = headers;
-                    this.http.post('/api/user/User', JSON.stringify(user), options)
+                    this.http.post('/api/Category', JSON.stringify(user), options)
                         .subscribe(function (res) {
-                        console.log("Create User :", res);
+                        console.log("Create Category : ", res);
                     });
                     ; //http.post
                 };
-                HomeComponent = __decorate([
+                CategoryComponent = __decorate([
                     //for http request (rest API)
                     core_1.Component({
                         selector: 'home',
-                        templateUrl: "./app/components/home/home.html"
+                        templateUrl: "./app/components/category/category.html"
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], HomeComponent);
-                return HomeComponent;
+                ], CategoryComponent);
+                return CategoryComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("CategoryComponent", CategoryComponent);
         }
     }
 });

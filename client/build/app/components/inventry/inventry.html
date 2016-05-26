@@ -1,0 +1,65 @@
+<h1>Inventry</h1>
+
+
+<form role="form" class="row col-md-12">
+    <div class="col-sm-3 col-md-6 col-lg-4">
+        
+<select class="form-control" [(ngModel)]="add.categoryName">
+    <option value="">Categories</option>
+     <option *ngFor="#get of getCategory"> {{get.categoryName}}  </option>
+</select> </div>
+ <div class="col-sm-3 col-md-6 col-lg-4">
+<select class="form-control" [(ngModel)]="add.productName">
+    <option value="">Product</option>
+     <option *ngFor="#get of getProducts"> {{get.productName}}  </option>
+</select> </div>
+ <div class="col-sm-3 col-md-6 col-lg-4">
+<select class="form-control" [(ngModel)]="add.userName">
+    <option value="">Person</option>
+     <option *ngFor="#get of getUsers"> {{get.fName}} {{get.lName}}  {{get.type}} </option>
+</select> </div>
+ <div class="col-sm-3 col-md-6 col-lg-4">
+<select class="form-control " [(ngModel)]="add.rate">
+    <option value="">Rate:</option>
+     <option *ngFor="#get of getRates">{{get.rates}} </option>
+</select>      
+    </div>
+    
+
+    <div class="col-sm-3 col-md-6 col-lg-4">
+        <div class="form-inline"> 
+            <input type="text" class="form-control" [(ngModel)]="add.unit" placeholder="Your unit pls..."> 
+                   
+        </div>
+    </div>
+   
+    <button type="submit" class="btn btn-default" (click)="send(add)">Submit</button>
+</form>
+
+
+
+
+
+<div class="container">
+  <h2>Inventry Data</h2>
+  <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Categoreis</th>
+        <th>Products</th>
+        <th>Rate</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="#get of getInventry">
+          <td>{{get.userName}}</td>
+        <td>{{get.categoryName}}</td>
+        <td>{{get.productName}}</td>
+        <td>{{get.rate}}</td>
+        <td>{{get.unit}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

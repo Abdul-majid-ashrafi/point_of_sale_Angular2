@@ -11,7 +11,7 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1, context_
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, http_1;
-    var HomeComponent;
+    var RateComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,43 +21,42 @@ System.register(["angular2/core", 'angular2/http'], function(exports_1, context_
                 http_1 = http_1_1;
             }],
         execute: function() {
-            HomeComponent = (function () {
-                function HomeComponent(http) {
+            RateComponent = (function () {
+                function RateComponent(http) {
                     var _this = this;
                     this.http = http;
-                    this.user = {
-                        fName: "",
-                        lName: "",
-                        type: ""
+                    this.rate = {
+                        rates: "",
+                        rateDec: ""
                     };
-                    this.http.get('/api/user/getUser')
+                    this.http.get('/api/rate/getRate')
                         .subscribe(function (res) {
                         _this.getData = res.json().data;
                         console.log(res.json().data);
                     });
                 }
-                HomeComponent.prototype.send = function (user) {
+                RateComponent.prototype.send = function (rate) {
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
                     var options = new http_1.RequestOptions();
                     options.headers = headers;
-                    this.http.post('/api/user/User', JSON.stringify(user), options)
+                    this.http.post('/api/rate/Rate', JSON.stringify(rate), options)
                         .subscribe(function (res) {
-                        console.log("Create User :", res);
+                        console.log(res);
                     });
                     ; //http.post
                 };
-                HomeComponent = __decorate([
+                RateComponent = __decorate([
                     //for http request (rest API)
                     core_1.Component({
                         selector: 'home',
-                        templateUrl: "./app/components/home/home.html"
+                        templateUrl: "./app/components/rate/rate.html"
                     }), 
                     __metadata('design:paramtypes', [http_1.Http])
-                ], HomeComponent);
-                return HomeComponent;
+                ], RateComponent);
+                return RateComponent;
             }());
-            exports_1("HomeComponent", HomeComponent);
+            exports_1("RateComponent", RateComponent);
         }
     }
 });

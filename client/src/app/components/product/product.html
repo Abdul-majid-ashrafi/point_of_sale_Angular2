@@ -1,0 +1,63 @@
+<h1>Product</h1>
+
+<input type="text" [(ngModel)]="product.productName">
+<!--<input type="text" [(ngModel)]="product.productDec">-->
+<!--<input type="text" [(ngModel)]="product.unit">-->
+
+<select name="" id="" [(ngModel)]="product.unit">
+    <option value="">Units</option>
+     <option> KG: 1 </option>
+          <option> KG: 2 </option>
+     <option> KG: 3 </option>
+          <option> BOX: 1 </option>
+     <option> BOX: 2 </option>
+
+
+</select>
+
+<select name="" id="" [(ngModel)]="product.categoryName">
+    <option value="">Categories</option>
+     <option *ngFor="#get of getCategory"> {{get.categoryName}}  </option>
+</select>
+
+<button (click)="send(product)">button</button>
+
+<!--<ul>
+    <li *ngFor="#p of getProduct"> Name: {{p.productName}}<br/>
+         Dec: {{p.productDec}}
+        
+    </li>
+</ul>-->
+
+
+
+
+
+<table style="width:100%">
+    <tr *ngFor="#get of getProduct">
+        <th>Category: {{get.categoryName}}</th>
+        <td> Name: {{get.productName}}</td>
+        <td> Dec: {{get.productDec}}</td>
+        <td>Unit : {{get.unit}}</td>
+        <!--<td>80</td>-->
+    </tr>
+</table>
+
+
+
+
+
+
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        padding: 5px;
+    }
+</style>

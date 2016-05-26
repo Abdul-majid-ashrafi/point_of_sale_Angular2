@@ -1,0 +1,35 @@
+<h1>Category</h1>
+
+<input type="text" [(ngModel)]="user.categoryName">
+<!--<input type="text" [(ngModel)]="user.categoryDec">-->
+<button (click)="send(user)">button</button>
+
+
+
+<!--<ul>
+    <li *ngFor="#get of getData">
+      Name:  {{get.categoryName}}<br/>
+      Dec:  {{get.categoryDec}}
+        </li>
+    
+</ul>-->
+
+<table style="width:100%">
+  <tr *ngFor="#get of getData">
+    <td> Name:  {{get.categoryName}}</td>
+    <td> Dec:  {{get.categoryDec}}</td>
+    <!--<td>80</td>-->
+  </tr>
+</table>
+
+
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+}
+</style>

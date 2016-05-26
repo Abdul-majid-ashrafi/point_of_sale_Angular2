@@ -43,7 +43,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     //catching from sever when it emits  (all fruits)..
                     this.socket.on('getAllFruits', function (data) {
                         ///this.fruits = data;
-                        console.log('getAllFruits', data);
+                        console.log('getAllFruits: ', data);
                     });
                     //sending request to fire all fruits from server and catching from server events (getAllFruits)
                     this.socket.emit('getFruits', null);

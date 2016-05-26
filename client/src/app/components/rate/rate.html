@@ -1,0 +1,15 @@
+<h1>Rate  List</h1>
+
+<input type="text" [(ngModel)]="rate.rates">
+<input type="text" [(ngModel)]="rate.rateDec">
+<button (click)="send(rate)">button</button>
+
+
+
+<ul>
+    <li *ngFor="#get of getData">
+      Name:  {{get.rates}}<br/>
+      Dec:  {{get.rateDec}}
+        </li>
+    
+</ul>

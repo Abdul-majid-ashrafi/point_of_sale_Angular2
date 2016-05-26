@@ -1,0 +1,24 @@
+<h1>Home Page</h1>
+
+<input type="text" [(ngModel)]="user.fName" placeholder="First Name">
+<input type="text" [(ngModel)]="user.lName"  placeholder="Last Name">
+<!--<input type="text" [(ngModel)]="user.type">-->
+
+<select [(ngModel)]="user.type">
+    <option value="">select</option>
+  <option value="Supplier">Supplier</option>
+  <option value="Admin">Admin</option>
+</select>
+
+<button (click)="send(user)">button</button>
+
+
+
+<ul>
+    <li *ngFor="#get of getData">
+      Name:  {{get.fName}}<br/>
+      Dec:  {{get.lName}}<br/>
+      Type: {{get.type}}
+        </li>
+    
+</ul>

@@ -1,0 +1,50 @@
+<h1>Selling</h1>
+
+<form role="form" class="row col-md-12">
+
+ <div class="col-sm-3 col-md-6 col-lg-4">
+<!--<select class="form-control" [(ngModel)]="sell.productName">
+    <option value="">Product</option>
+     <option *ngFor="#get of getProduct"> {{get.productName}}  </option>
+</select> -->
+
+<select class="form-control" (change)="onChange($event.target.value)"  [(ngModel)]="sell.productName">
+  <option value="">Product</option>
+    <option *ngFor="#get of getInventry">{{get.productName}}</option>
+</select>
+
+
+
+</div>
+ 
+
+    <div class="col-sm-3 col-md-6 col-lg-4">
+        <div class="form-inline"> 
+            <input type="text" class="form-control" [(ngModel)]="sell.unit" placeholder="{{selectRate}}"> 
+                   
+        </div>
+    </div>
+   
+    <button type="submit" class="btn btn-default" (click)="send(sell)">Submit</button>
+</form>
+
+
+
+
+<div class="container">
+  <h2>Storing Data</h2>
+  <table class="table table-bordered" >
+    <thead>
+      <tr>
+        <th>Products</th>
+        <th>Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="#get of getSellings">
+        <td>{{get.productName}}</td>
+        <td>{{get.unit}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
